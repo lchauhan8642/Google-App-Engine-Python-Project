@@ -1,0 +1,71 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Twitter</title>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/styles.css"/>
+</head>
+
+<body>
+{% if my_user.username == None %}
+	<div class="form-title">Please <a href="/register">register</a> first to access all the features of this application</div>
+{% else %}
+<div class="topnav">
+  <a href="/"><b>HOME</b></a>
+  <a href="/profile"><b>MY PROFILE</b></a>
+  <a href="/edit"><b>UPDATE PROFILE</b></a>
+  <div class="search-container">
+    <form action="/search" method="get">
+    <input type="text" placeholder="Search.." name="search">
+    <input type="submit" value="Search">
+    </form>
+  </div>
+  <div class="topnav-right">
+      <a href="{{ url }}"><b>LOGOUT</b></a>
+  </div>
+</div>
+
+
+
+<div class="twitt-container">
+	<div class="left-twitt-container">
+		<div class="profile">
+			<div class="pic">
+
+			{% for i in data %}
+			{% if i.user_id == my_user.key.id() %}
+				<div class="name"><b>{{ i.first_name }} {{ i.last_name }}</b></div>
+				<div class="username">{{ i.username }}</div>
+				<div class="about">{{ i.about }}</div>
+				{% endif %}
+			{% endfor %}
+
+			</div>
+
+			<div class="compose"><a href="/add">Add new Tweets</a></div>
+		</div>
+	</div>
+	<div class="right-twitt-container">
+		<div class="title">User Tweets</div>
+		{{ message }}
+		{% for i in tweets %}
+		{% if (i.user_id == my_user.key.id()) or (i.username in my_user.following) %}
+		<div class="tweet-content">
+			<div class="right">
+				<div class="title">{{ i.username }}</div>
+				<div class="content">{{ i.content }}</div>
+				{% if i.blobstore == None %}
+					<div></div>
+				{% else %}
+					<img src="{{ i.image_path }}"/>
+				{% endif %}
+			</div>
+		</div>
+		{% endif %}
+		{% endfor %}
+	</div>
+</div>
+
+{% endif %}
+</body>
+
+</html>

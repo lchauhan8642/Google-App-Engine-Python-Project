@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Upload Anagram</title>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/styles.css"/>
+</head>
+
+<body>
+<div class="topnav">
+  <a href="/"><b>HOME</b></a>
+  <a href="/addanagram"><b>Add Anagram</b></a>
+  <a href="/upload"><b>UPLOAD</b></a>
+  <div class="topnav-right">
+    <a href="{{ url }}"><b>LOGOUT</b></a>
+  </div>
+</div>
+<p style="font-size:120%;">You are logged in as:<b> {{ user.email() }}</b></p>
+<br>
+<div class="content">
+  <table>
+    <form method="post" action="/upload">
+      <tr>
+        <td>
+          <input type="file" id="file" class="text_input1" name="file" placeholder="Choice new file...."/>
+          <label for="file" class="button2">Select file</label>
+        </td>
+
+      </tr>
+      <tr>
+        <br>
+        <td id="button_row">
+          <input type="submit" class="button1" name="button" value="Upload"/>
+        </td>
+      </tr>
+    </form>
+  </table>
+
+</div>
+</body>
+
+</html>

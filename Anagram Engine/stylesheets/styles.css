@@ -1,0 +1,233 @@
+* {
+    box-sizing: border-box
+}
+
+body {
+  margin: 0;
+  background-image: url("/../images/background.jpg");
+  ont-family: 'Raleway';
+  font-family: Arial, Helvetica, sans-serif
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    border-bottom: 1px solid #bbb;
+    text-align: left;
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header {
+    background-color: #484d4f;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bolder;
+    color: #f4fcff;
+    margin: auto;
+    width: 60%;
+    overflow: hidden;
+    border: 0.5px solid #434647;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+}
+
+.header_login {
+    background-color: #484d4f;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bolder;
+    color: #f4fcff;
+    margin: auto;
+    width: 30%;
+    overflow: hidden;
+    border: 0.5px solid #434647;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    top: 0px;
+}
+
+.content_login {
+    font-size: 20px;
+    background-color: #efefef;
+    margin: auto;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    width: 30%;
+    padding: 10px;
+    min-height: 27%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.sub-headline {
+    font-size: 15px;
+}
+
+.content {
+    font-size: 20px;
+    background-color: #f4fcff;
+    margin: auto;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    width: 60%;
+    padding: 10px;
+    min-height: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.button_element {
+  color: #333;
+  font-size: 16px;
+  text-align: center;
+  background-color: #1be6c8;
+  margin: auto;
+  width: 100%;
+  border: 2px solid #ef3812;
+  padding: 15px;
+
+}
+
+.button_element_login {
+    color: #f4fcff;
+    font-size: 16px;
+    text-align: center;
+    background-color: #50b0b2;
+    margin: auto;
+    width: 100%;
+    padding: 15px;
+}
+
+.button1 {
+    background-color: #4caf50;
+    border: 2px solid #302c2c;
+    color: black;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 20%;
+    float: left;
+    cursor: pointer;
+    border-color: black;
+}
+
+.button2 {
+    background-color: #b5b5f8;
+    border: 2px solid #302c2c;
+    color: black;
+    padding: 14px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 30%;
+    float: right;
+    cursor: pointer;
+    border-color: black;
+}
+
+.button {
+    background-color: #4caf50;
+    border: 2px solid #302c2c;
+    color: black;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 100%;
+    float: right;
+    cursor: pointer;
+    border-color: black;
+}
+
+.button_delete {
+  background-color: #70d1d0;
+  border: 2px solid #302c2c;
+  color: #302c2c;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 50%;
+  cursor: pointer;
+  float: right;
+}
+
+.text_input {
+    width: 100%;
+    padding: 15px 5px;
+    margin-top: 2px;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+.text_input1 {
+    width: 65%;
+    padding: 15px 5px;
+    margin-top: 2px;
+    font-size: 13px;
+    box-sizing: border-box;
+    border: 2px solid #302c2c;
+}
+
+.anagram_table_data {
+    border-bottom: 1.2px solid #bbb;
+}
+
+.anagram_table_data_sortedWord {
+    border-bottom: 1.2px solid #bbb;
+    width: 25%;
+}
+
+.search{
+  width=100%;
+}
+#delete_row {
+    width: 15%;
+    border-bottom: 1px solid #A9A9F5;
+}
+
+#button_row {
+    width: 30%;
+    border-bottom: 0px;
+}
+
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav-right {
+  float: right;
+}

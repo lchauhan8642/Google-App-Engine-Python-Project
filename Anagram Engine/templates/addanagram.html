@@ -1,0 +1,65 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Add Anagram</title>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/styles.css"/>
+</head>
+
+<body>
+  <div class="topnav">
+    <a href="/"><b>HOME</b></a>
+    <a href="/addanagram"><b>Add Anagram</b></a>
+    <a href="/upload"><b>UPLOAD</b></a>
+    <div class="topnav-right">
+      <a href="{{ url }}"><b>LOGOUT</b></a>
+    </div>
+  </div>
+  <p style="font-size:120%;">You are logged in as:<b> {{ user.email() }} &emsp;&emsp;&emsp; Anagram Count:{{ user1.anagram_count }} &emsp;&emsp;Word count:{{ user1.words_count }}</b></p>
+  <br>
+<div class="content">
+    <table>
+        <form method="post" action="/addanagram">
+            <tr>
+                <td>
+                    <input type="text" class="text_input" name="value" placeholder="Add a new word..."/>
+                </td>
+                <td id="button_row">
+                    <input type="submit" class="button" name="button" value="Add"/>
+                </td>
+            </tr>
+        </form>
+    </table>
+    <br>
+    {% if anagrams %}
+        <table>
+            <tr>
+                <th colspan="3">
+                    Anagrams are:
+                </th>
+            </tr>
+            {% for anagram in anagrams %}
+                <tr>
+                        <td class="anagram_table_data_sortedWord">
+                            <b>{{ anagram.sorted_word }}</b>
+                        </td>
+                        <td class="anagram_table_data">
+                            {% for word in anagram.words %}
+                                {% if loop.index == anagram.words | length %}
+                                    {{ word }}
+                                {% else %}
+                                    {{ word }},
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                        <td class="button_delete">
+                            <a href="/subanagram?name={{ anagram.sorted_word }}" >SubAnagram</a>
+                        </td>
+                </tr>
+            {% endfor %}
+            <tr></tr>
+        </table>
+    {% endif %}
+</div>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Update Info</title>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/styles.css"/>
+</head>
+
+<body>
+  <div class="topnav">
+    <a href="/"><b>HOME</b></a>
+    <a href="/profile"><b>MY PROFILE</b></a>
+    <a href="/edit"><b>UPDATE PROFILE</b></a>
+    <div class="search-container">
+      <form action="/search" method="get">
+      <input type="text" placeholder="Search.." name="search">
+      <input type="submit" value="Search">
+      </form>
+    </div>
+    <div class="topnav-right">
+        <a href="{{ url }}"><b>LOGOUT</b></a>
+    </div>
+  </div>
+<div class="main-container">
+	<div class="title">Search for user or content</div>
+    <table>
+	{% if value == '' %}
+		<tr>
+                <td>
+					Please search with some text.
+                </td>
+		</tr>
+	{% else %}
+		{% for i in userinfo %}
+		{% if value in i.username %}
+
+			<tr>
+                <td>
+					<a href="/user?name={{ i.username }}">{{ i.username }}</a>
+                </td>
+			</tr>
+			{% endif %}
+		{% endfor %}
+
+		{% for i in tweets %}
+		{% if value in i.content %}
+
+			<tr>
+				<td>
+					Username:- {{ i.username }}
+                </td>
+                <td>
+					{{ i.content }}
+                </td>
+			</tr>
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+    </table>
+
+</div>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Update Info</title>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/styles.css"/>
+</head>
+
+<body>
+  <div class="topnav">
+    <a href="/"><b>HOME</b></a>
+    <a href="/profile"><b>MY PROFILE</b></a>
+    <a href="/edit"><b>UPDATE PROFILE</b></a>
+    <div class="search-container">
+      <form action="/search" method="get">
+      <input type="text" placeholder="Search.." name="search">
+      <input type="submit" value="Search">
+      </form>
+    </div>
+    <div class="topnav-right">
+        <a href="{{ url }}"><b>LOGOUT</b></a>
+    </div>
+  </div>
+<div class="main-container">
+	<div class="title">User Information</div>
+    <table>
+        <form method="post" action="/edit">
+		{% for i in userinfo %}
+		{% if value == i.username %}
+			<tr>
+				<td>
+				Username
+				</td>
+                <td>
+                    {{ i.username }}
+                </td>
+			</tr>
+			<tr>
+				<td>
+				Name
+				</td>
+                <td>
+                    {{ i.first_name }} {{ i.last_name }}
+                </td>
+			</tr>
+			<tr>
+				<td>
+				About user
+				</td>
+                <td>
+					{{ i.about }}
+                </td>
+			</tr>
+			<tr>
+				<td>
+				Date of birth
+				</td>
+				<td>
+                    {{ i.dob }}
+                </td>
+			</tr>
+			<tr>
+                <td class="button_row">
+                    <input type="submit" class="button" name="button" value="Follow">
+                </td>
+            </tr>
+			{% endif %}
+			{% endfor %}
+        </form>
+    </table>
+
+</div>
+</body>
+
+</html>

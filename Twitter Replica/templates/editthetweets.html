@@ -1,0 +1,58 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Update Info</title>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/styles.css"/>
+</head>
+
+<body>
+  <div class="topnav">
+    <a href="/"><b>HOME</b></a>
+    <a href="/profile"><b>MY PROFILE</b></a>
+    <a href="/edit"><b>UPDATE PROFILE</b></a>
+    <div class="search-container">
+      <form action="/search" method="get">
+      <input type="text" placeholder="Search.." name="search">
+      <input type="submit" value="Search">
+      </form>
+    </div>
+    <div class="topnav-right">
+        <a href="{{ url }}"><b>LOGOUT</b></a>
+    </div>
+  </div>
+<div class="main-container">
+	<div class="title">Update your tweet</div>
+    <table>
+	{% for i in data %}
+			{% if i.content == value %}
+        <form method="post" action="/edittweet">
+			<tr>
+                <td>
+                    <input type="hidden" class="text-input" id="input-username" name="username" value="{{ i.username }}" readonly/>
+                </td>
+			</tr>
+			<tr>
+				<td>
+				Content
+				</td>
+                <td>
+                    <textarea class="textarea" name="content" placeholder="Add something here..." maxlength="280"
+					title="Please enter some thing to create new tweet" required>{{ i.content }}</textarea>
+                </td>
+			</tr>
+	
+
+			<tr>
+                <td class="button_row">
+                    <input type="submit" class="button" name="button" value="Update">
+                </td>
+            </tr>
+        </form>
+		{% endif %}
+		{% endfor %}
+    </table>
+
+</div>
+</body>
+
+</html>

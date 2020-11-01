@@ -1,0 +1,167 @@
+<html>
+<head>
+<title>FEATURE</title>
+<meta charset="utf-8"/>
+<style>
+    #table1 {
+      font-family: "Times New Roman", Times, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #table1 td, #table1 th {
+      border: 2px solid black;
+      padding: 8px;
+    }
+
+    #table1 tr:nth-child(even){background-color: #B8F3F0;}
+
+    #table1 tr:hover {background-color: #ddd;}
+
+    #table1 th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #20BAF2;
+      color: white;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .topnav {
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .topnav a.active {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .topnav-right {
+  float: right;
+}
+
+</style>
+</head>
+<body bgcolor=#B8F3F0>
+<div class="topnav">
+  <a href="/"><b>GPU</b></a>
+  <a href="/myfeature">VIEW FEATURE</a>
+  <a href="/view">VIEW</a>
+  <div class="topnav-right">
+    <a href="{{ logout_url }}">LOGOUT</a>
+  </div>
+</div>
+</br>
+</br>
+<b>View your Feature here: </b>
+</br>
+</br>
+<form method="get" action="/myfeature">
+    Geometry Shader: <input type="checkbox" name="my_gpu_geometryShader"/><br>
+    <br>
+    Tesselation Shader: <input type="checkbox" name="my_gpu_tesselationShader"/><br>
+    <br>
+    Shader Int16:<input type="checkbox" name="my_gpu_shaderInt16"/><br>
+    <br>
+    Sparse Binding:<input type="checkbox" name="my_gpu_sparseBinding"/><br>
+    <br>
+    Texture CompressionETC2: <input type="checkbox" name="my_gpu_textureCompressionETC2"/><br>
+    <br>
+    Vertex Pipeline Stores And Atomics: <input type="checkbox" name="my_gpu_vertexPipelineStoreandAtomics"/><br>
+    <br>
+    <input type="submit" value="ViewbyFeature" name="button"/>
+</form>
+
+<table id="table1">
+    <thead>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Manufacturer Name
+        </th>
+        <th>
+            Date issued
+        </th>
+        <th>
+            Geometry Shader
+        </th>
+
+        <th>
+            Tesselation Shader
+        </th>
+        <th>
+            ShaderInt16
+        </th>
+        <th>
+            Sparse Binding
+        </th>
+        <th>
+            Texture CompressionETC2
+        </th>
+        <th>
+            Vertex Pipeline Stores And Atomics
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for my_gpu in addresses %}
+    <tr>
+      <td>
+        {{ my_gpu.name}}
+      </td>
+      <td>
+        {{ my_gpu.manufacturer }}
+      </td>
+      <td>
+        {{ my_gpu.dateissued }}
+      </td>
+      <td>
+        {{ my_gpu.geometryShader }}
+      </td>
+      <td>
+        {{ my_gpu.tesselationShader }}
+      </td>
+      <td>
+        {{ my_gpu.shaderInt16}}
+      </td>
+      <td>
+        {{ my_gpu.sparseBinding }}
+      </td>
+      <td>
+        {{ my_gpu.textureCompressionETC2 }}
+      </td>
+      <td>
+        {{ my_gpu.vertexPipelineStoreandAtomics }}
+      </td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<form method="get" action="/myfeature">
+  <div align="right">
+    <input type="submit" value="Cancel" name="button"/>
+  </div>
+</form>
+</body>
+</html>

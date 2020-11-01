@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Sub Anagram</title>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/styles.css"/>
+</head>
+
+<body>
+<div class="topnav">
+  <a href="/"><b>HOME</b></a>
+  <a href="/addanagram"><b>Add Anagram</b></a>
+  <a href="/upload"><b>UPLOAD</b></a>
+  <div class="topnav-right">
+    <a href="{{ url }}"><b>LOGOUT</b></a>
+  </div>
+</div>
+<p style="font-size:120%;">You are logged in as:<b> {{ user.email() }}</b></p>
+<br>
+<div class="header">
+    <div style="float:left; width:70%; text-align: left;">
+        The Sub Anagrams are:-
+    </div>
+    <div style="float:right; width:20%">
+        <a href="/addanagram">
+            <div class="button_element">
+                Back
+            </div>
+        </a>
+    </div>
+</div>
+<div class="content">
+            <table class="search">
+                <tr>
+                    <th>
+                        These are the sub anagrams of "{{ value }}":
+                    </th>
+                </tr>
+                {% for anagram in anagrams %}
+					{% if value == anagram.sorted_word %}
+						{% for subword in anagram.sub_anagram %}
+                                {% if loop.index == anagram.sub_anagram | length %}
+								<tr>
+									<td class="searchTable">{{ subword }}</td>
+                                {% else %}
+									<td class="searchTable"> {{ subword }}</td>
+								</tr>
+								{% endif %}
+						{% endfor %}
+					{% endif %}
+                {% endfor %}
+            </table>
+
+</div>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Twitter</title>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/styles.css"/>
+</head>
+
+<body>
+{% if my_user.username == None %}
+	<div class="form-title">Please <a href="/register">register</a> first to access all the features of this application</div>
+{% else %}
+<div class="topnav">
+  <a href="/"><b>HOME</b></a>
+  <a href="/profile"><b>MY PROFILE</b></a>
+  <a href="/edit"><b>UPDATE PROFILE</b></a>
+  <div class="search-container">
+    <form action="/search" method="get">
+    <input type="text" placeholder="Search.." name="search">
+    <input type="submit" value="Search">
+    </form>
+  </div>
+  <div class="topnav-right">
+      <a href="{{ url }}"><b>LOGOUT</b></a>
+  </div>
+</div>
+
+<div class="twitt-container">
+	<div class="left-twitt-container">
+		<div class="profile">
+			<div class="pic">
+
+			{% for i in userinfo %}
+			{% if i.user_id == my_user.key.id() %}
+				<div class="name"><b>{{ i.first_name }} {{ i.last_name }}</b></div>
+				<div class="username"><a href="/user?name={{ i.username }}">{{ i.username }}</a></div>
+				<div class="about">{{ i.about }}</div>
+				{% endif %}
+			{% endfor %}
+
+			</div>
+
+			<div class="compose"><a href="/add">Add new Tweet...</a></div>
+		</div>
+	</div>
+	<div class="right-twitt-container">
+		<div class="title">Tweets</div>
+		{{ message }}
+		{% for i in tweets %}
+		{% if i.user_id == my_user.key.id() %}
+		<div class="tweet-content">
+			<div class="right">
+				<div class="title">{{ i.username }}</div>
+				<div class="content">{{ i.content }}</div>
+				<div class="action">
+				<div class="action-delete">
+					<form action="/add" method="post">
+						<input type="hidden" name="twitter_id" value="{{ i.content }}"/>
+						<input type="submit" value="Delete" name="button"/>
+					</form>
+				</div>
+				<div class="edit"><a href="/edittweet?value={{ i.content }}">Edit</a></div>
+				</div>
+			</div>
+		</div>
+		{% endif %}
+		{% endfor %}
+	</div>
+</div>
+
+{% endif %}
+</body>
+
+</html>
